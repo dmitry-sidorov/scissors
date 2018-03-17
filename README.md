@@ -1,1 +1,1 @@
-Aducational project: in-browser game "Rock-Paper-Scissors"
+Aducational project: in-browser game "Rock-Paper-Scissors".
