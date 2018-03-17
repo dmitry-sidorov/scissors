@@ -25,7 +25,7 @@
 }
 
 .buttons button	{
-	border: 1px solid black;
+	border: 2px solid black;
 	border-radius: 50px;
 	background-color: white;
 	margin: 100px;
@@ -64,7 +64,7 @@
 	}
 
 .play-button img {
-	border: 1px solid black;
+	border: 2px solid black;
 	padding: 10px;
 	border-radius: 30px;
 }
