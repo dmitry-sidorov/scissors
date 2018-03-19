@@ -1,13 +1,12 @@
 .container {
-	width: 1080px;
+	width: 90%;
 	margin: 0 auto;
 }
 
 header {
-	
-	display: inline-block;
 	margin: 50px;
 	text-align: center;
+	clear: right;
 
 	
 }
@@ -24,7 +23,7 @@ header {
 .message {
 	display: block;
 	text-align: center;
-	font-style: Comic;
+	font-style: Arial;
 	font-size: 30px;
 	text-align: center;
 
@@ -32,45 +31,44 @@ header {
 }
 
 
-section	{
+section	div {
+	text-align: center;
 	display: inline-block;
+
 }
 
+
 .button	{
+	
 	border: 2px solid black;
 	border-radius: 50px;
 	background-color: white;
-	margin: auto;
+	margin: 0 10px;
 	padding: auto;
-	
 	width: 300px;
-	height: 300px;
+	height: 300px;	
 	
+
 }
 
-/*.rock {
-	background-image: url(images/rock.jpg);
+.rock {
 	width: 250px;
 	height: 250px; 
+
+
+
+	background-image: url('images/rock.jpg');
+	background-repeat: no-repeat;
 }
 
-.scissors {
-	background-image: url(images/scissors.jpg);
-}
 
-.paper {
-	background-image: url(images/paper.jpg);
-}
-*/
 
 .play-button {
 	border: 0;
 	background-color: white;
-	
 	top: 650px;
-	width: 100%;
-	
-	}
+	width: 100%;	
+}
 
 .play-button img {
 	border: 2px solid black;
