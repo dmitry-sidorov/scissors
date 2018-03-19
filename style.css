@@ -1,12 +1,19 @@
-.score {
-	display: inline;
-	width: 100%;
-	position: absolute;
-	top: 100px;
-	text-align: center;
+.container {
+	width: 1080px;
+	margin: 0 auto;
 }
 
-.bar {
+header {
+	
+	display: inline-block;
+	margin: 50px;
+	text-align: center;
+
+	
+}
+
+.score {
+	display: inline;
 	margin: 50px;
 	padding: 50px;
 	font-style: Arial;
@@ -14,28 +21,31 @@
 	text-align: center;
 }
 
-
-
-.buttons	{
-	display: inline;
-	width: 100%;
-	position: absolute;
-	top: 200px;
+.message {
+	display: block;
 	text-align: center;
+	font-style: Comic;
+	font-size: 30px;
+	text-align: center;
+
+
 }
 
-.buttons button	{
+
+section	{
+	display: inline-block;
+}
+
+.button	{
 	border: 2px solid black;
 	border-radius: 50px;
 	background-color: white;
-	margin: 100px;
+	margin: auto;
 	padding: auto;
-	font-style: Arial;
-	font-size: 30px;
-	text-align: center;
+	
 	width: 300px;
 	height: 300px;
-	vertical-align: top;
+	
 }
 
 /*.rock {
@@ -56,8 +66,7 @@
 .play-button {
 	border: 0;
 	background-color: white;
-	text-align: center;
-	position: absolute;
+	
 	top: 650px;
 	width: 100%;
 	
