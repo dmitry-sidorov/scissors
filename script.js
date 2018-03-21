@@ -1,4 +1,18 @@
 //HTML selectors
+window.onload = function () {
+	let playerSelect = "";
+	let buttonRock = document.querySelector("rock");
+	buttonRock.addEventLister('click', event => {
+		setRockColor();}, false);
+
+function setRockColor() {
+	buttonRock.setAttribute ('style','border-color: green');
+}
+
+}
+
+
+
 
 let winDisplay = document.querySelector(".win");
 winDisplay.textContent += win;
