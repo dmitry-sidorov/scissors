@@ -1,12 +1,13 @@
 //HTML selectors
 window.onload = function () {
 	let playerSelect = "";
-	let buttonRock = document.querySelector("rock");
+	let buttonContainerLeft = document.querySelector('.button rock');
+	let buttonRock = document.querySelector('.rock');
 	buttonRock.addEventLister('click', event => {
 		setRockColor();}, false);
 
 function setRockColor() {
-	buttonRock.setAttribute ('style','border-color: green');
+	buttonContainerLeft.setAttribute ('style.css','border-color: green');
 }
 
 }
