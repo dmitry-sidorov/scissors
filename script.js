@@ -1,26 +1,10 @@
 //HTML selectors
-window.onload = function () {
-	let playerSelect = "";
-	let buttonContainerLeft = document.querySelector('.button rock');
-	let buttonRock = document.querySelector('.rock');
-	buttonRock.addEventLister('click', event => {
-		setRockColor();}, false);
 
-function setRockColor() {
-	buttonContainerLeft.setAttribute ('style.css','border-color: green');
-}
-
-}
-
-
-
-
-let winDisplay = document.querySelector(".win");
-winDisplay.textContent += win;
-
-let playButton = document.querySelector(".play-button");
-playButton.addEventLister('click', game());
-
+let button = document.querySelector('.rock button');
+		let para = document.querySelector('.para.rock');
+		button.addEventListener('click', (e) => {
+			para.setAttribute('style', 'background-color: grey');
+		});
 
 // Business logic
 
@@ -102,5 +86,4 @@ function game() {
 		
 	}
 }
-
 
