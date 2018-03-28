@@ -1,10 +1,17 @@
 
 let playerChoice = "";
+let message = document.querySelector('.message');
 let roundCounter = 0;
 let scoreWin = 0;
 let scoreLoose = 0;
 let scoreDraw = 0;
-let roundsPlayed = document.querySelector('.player');
+let displayWin = document.querySelector('.win');
+displayWin.textContent = scoreWin;
+let displayLoose = document.querySelector('.loose');
+displayLoose.textContent = scoreLoose;
+let displayDraw = document.querySelector('.draw');
+displayDraw.textContent = scoreDraw;
+let roundsPlayed = document.querySelector('.rounds');
 roundsPlayed.textContent = roundCounter;
 let buttonRock = document.querySelector('.rock button');
 let paraRock = document.querySelector('.para.rock');
@@ -30,10 +37,13 @@ buttonPaper.addEventListener('click', (e) => {
 let buttonPlay = document.querySelector('.play button');
 let paraPlay = document.querySelector('.play');
 buttonPlay.addEventListener('click', (e) => {
-	playRound();
+	if (playerChoice !== null)	{
+		playRound();
+	} else message.textContent = "Make Your Choice!" 
 	resetColor(paraRock);
 	resetColor(paraScissors);
 	resetColor(paraPaper);
+	playerChoice = null;
 });
 
 let buttonPlayAgain = document.querySelector('.play-again button');
@@ -41,6 +51,12 @@ let paraPlayAgain = document.querySelector('.play-again');
 buttonPlayAgain.addEventListener('click', (e) => {
 	roundCounter = 0;
 	roundsPlayed.textContent = roundCounter;
+	scoreWin = 0;
+	displayWin.textContent = scoreWin;
+	scoreLoose = 0;
+	displayLoose.textContent = scoreLoose;
+	scoreDraw = 0;
+	displayDraw.textContent = scoreDraw;
 	paraPlayAgain.setAttribute('style','display: none');
 	paraPlay.setAttribute('style','display: inline')
 });
@@ -89,10 +105,36 @@ function playRound() {
 	if (roundCounter < 5) {
 		let computerChoice = computerPlay();
 		let roundResult = compare (playerChoice, computerChoice);
+		switch (roundResult) {
+			case "win": {
+				scoreWin++; 
+				displayWin.textContent = scoreWin;
+				message.textContent = "You Win!"
+				break;
+			} case "loose": {
+				scoreLoose++;
+				displayLoose.textContent = scoreLoose;
+				message.textContent = "You Loose!"
+				break;
+			} case "draw": {
+				scoreDraw++;
+				displayDraw.textContent = scoreDraw;
+				message.textContent = "Draw!"
+				break;
+			}
+		}
 		roundCounter++;
 		roundsPlayed.textContent = roundCounter;
-	} else {
+		
+	} 
+	if (roundCounter === 5) {
 		paraPlayAgain.setAttribute('style','display: inline');
 		paraPlay.setAttribute('style','display: none');
-	} 
+		if (scoreWin > scoreLoose) {
+			message.textContent = "You won the match!"
+		} else {
+			message.textContent = "You lost the match!"
+		}
+	}
 }
+
