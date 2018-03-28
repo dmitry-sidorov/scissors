@@ -49,6 +49,7 @@ buttonPlay.addEventListener('click', (e) => {
 let buttonPlayAgain = document.querySelector('.play-again button');
 let paraPlayAgain = document.querySelector('.play-again');
 buttonPlayAgain.addEventListener('click', (e) => {
+	message.textContent = "Choose Your Destiny!"
 	roundCounter = 0;
 	roundsPlayed.textContent = roundCounter;
 	scoreWin = 0;
