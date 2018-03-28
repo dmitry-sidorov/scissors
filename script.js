@@ -1,5 +1,5 @@
 
-let playerChoice = "";
+let playerChoice = null;
 let message = document.querySelector('.message');
 let roundCounter = 0;
 let scoreWin = 0;
