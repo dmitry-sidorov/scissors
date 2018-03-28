@@ -1,12 +1,63 @@
-//HTML selectors
 
-let button = document.querySelector('.rock button');
-		let para = document.querySelector('.para.rock');
-		button.addEventListener('click', (e) => {
-			para.setAttribute('style', 'background-color: grey');
-		});
+let playerChoice = "";
+let roundCounter = 0;
+let scoreWin = 0;
+let scoreLoose = 0;
+let scoreDraw = 0;
+let roundsPlayed = document.querySelector('.player');
+roundsPlayed.textContent = roundCounter;
+let buttonRock = document.querySelector('.rock button');
+let paraRock = document.querySelector('.para.rock');
+buttonRock.addEventListener('click', (e) => {
+	setColorsAll(paraRock, paraScissors, paraPaper);
+	playerChoice = "rock";
+});
 
-// Business logic
+let buttonScissors = document.querySelector('.scissors button');
+let paraScissors = document.querySelector('.para.scissors');
+buttonScissors.addEventListener('click', (e) => {
+	setColorsAll(paraScissors, paraRock, paraPaper);
+	playerChoice = "scissors";
+});
+
+let buttonPaper = document.querySelector('.paper button');
+let paraPaper = document.querySelector('.para.paper');
+buttonPaper.addEventListener('click', (e) => {
+	setColorsAll(paraPaper, paraScissors, paraRock);
+	playerChoice = "paper";
+});
+
+let buttonPlay = document.querySelector('.play button');
+let paraPlay = document.querySelector('.play');
+buttonPlay.addEventListener('click', (e) => {
+	playRound();
+	resetColor(paraRock);
+	resetColor(paraScissors);
+	resetColor(paraPaper);
+});
+
+let buttonPlayAgain = document.querySelector('.play-again button');
+let paraPlayAgain = document.querySelector('.play-again');
+buttonPlayAgain.addEventListener('click', (e) => {
+	roundCounter = 0;
+	roundsPlayed.textContent = roundCounter;
+	paraPlayAgain.setAttribute('style','display: none');
+	paraPlay.setAttribute('style','display: inline')
+});
+
+function setColor(color) {
+	return ('background-color: ' + color);
+}
+
+function setColorsAll(set, reset1, reset2) {
+	set.setAttribute('style', setColor("#b5a1d1")); 
+	reset1.setAttribute('style', setColor("white"));
+	reset2.setAttribute('style', setColor("white"));
+}
+
+function resetColor(reset) {
+	reset.setAttribute('style', setColor("white")); 
+}
 
 function getRandomArbitrary(min, max) {
 	return Math.random() * (max - min) + min;
@@ -35,55 +86,13 @@ function compare(arg1, arg2) {
 }
 
 function playRound() {
-	let computerSelection = computerPlay();
-	let playerSelection = check (prompt("Rock? Paper? Scissors?"));
-	let winnerIndex = compare (playerSelection, computerSelection);
-	let winner = message("winnerIndex");
-	console.log ("You: " + playerSelection + " Computer: " + computerSelection + " " + winner);
-	return winnerIndex;
-	}
-
-function message(arg) {
-	switch (arg) {
-	case 0: return "Draw!";
-	break;
-	case 1: return "You win!";
-	break;
-	case 2: return "You loose!"
-	break;
-	default: return "Invalid argument"
-	}
-}
-
-function check(str) {
-	let checkFailed = false;
-	if (str !== "string") {
-		console.log("Enter correct value!");
-		checkFailed = true;
-	} else str = str.toLowerCase();
-	if (((str !== "rock") || (str !== "papper") || (str !== "scissors")) && checkFailed == false) {
-		console.log("Enter correct value!");
+	if (roundCounter < 5) {
+		let computerChoice = computerPlay();
+		let roundResult = compare (playerChoice, computerChoice);
+		roundCounter++;
+		roundsPlayed.textContent = roundCounter;
 	} else {
-		return str;
-	}
+		paraPlayAgain.setAttribute('style','display: inline');
+		paraPlay.setAttribute('style','display: none');
+	} 
 }
-
-
-function game() {
-	let win = 0;
-	let lost = 0;
-	let draw = 0; 
-	for (i = 0; i < 5; i++) {
-		let result = playRound();
-		switch (result) {
-			case 0: draw++;
-			break;
-			case 1: win++;
-			break;
-			case 2: lost++;
-			break;
-		}
-		
-	}
-}
-
